@@ -3,50 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>💝 Valentine's Invitation</title>
+    <title>Valentine's Invitation</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Permanent+Marker&family=Architects+Daughter&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <!-- Card Envelope -->
+        <!-- Letter Envelope -->
         <div class="envelope" id="envelope">
-            <div class="flap"></div>
-            <div class="card" id="card">
-                <h1>💕 You're Invited! 💕</h1>
+            <div class="envelope-top"></div>
+            <div class="letter" id="letter">
+                <p>Click to Open</p>
             </div>
         </div>
 
         <!-- Main Message Section -->
         <div class="message-section" id="messageSection">
-            <div class="heart-decoration">
-                <span class="heart">❤️</span>
-                <span class="heart">💖</span>
-                <span class="heart">💗</span>
+            <div class="paper-header">
+                <div class="date-stamp">February 14, 2026</div>
             </div>
             
-            <h1 class="main-title">Happy Valentine's Day! 💝</h1>
+            <h1 class="main-title">Happy Valentine's Day</h1>
             
             <div class="message-box">
                 <p class="message">
-                    Hey there, beautiful! 🌹<br><br>
+                    Dear Beautiful,<br><br>
                     I've been thinking about this special day, and I can't imagine 
                     spending it with anyone else but you. You make every moment 
-                    brighter, every laugh louder, and every day more meaningful. ✨
+                    brighter, every laugh louder, and every day more meaningful.
+                    <br><br>
+                    So here's my question...
                 </p>
             </div>
 
             <div class="question-box">
-                <h2 class="question">Will you go out with me this Valentine's? 💕</h2>
+                <h2 class="question">Will you go out with me this Valentine's?</h2>
                 
                 <div class="checkbox-container">
                     <label class="checkbox-label">
                         <input type="checkbox" name="answer" value="yes1" id="yes1">
-                        <span class="checkbox-text">Yes! 💖</span>
+                        <span class="checkmark"></span>
+                        <span class="checkbox-text">Yes</span>
                     </label>
                     
                     <label class="checkbox-label">
                         <input type="checkbox" name="answer" value="yes2" id="yes2">
-                        <span class="checkbox-text">Yes! 💗</span>
+                        <span class="checkmark"></span>
+                        <span class="checkbox-text">Yes</span>
                     </label>
                 </div>
             </div>
@@ -54,82 +57,66 @@
 
         <!-- Date Activities Section (Hidden Initially) -->
         <div class="activities-section" id="activitiesSection">
-            <div class="celebration">🎉 Yay! I knew you'd say yes! 🎉</div>
+            <div class="celebration">Yay! I knew you'd say yes!</div>
             
-            <h2 class="activities-title">What would you like to do on our date? 💕</h2>
-            <p class="activities-subtitle">(Pick as many as you'd like!)</p>
+            <h2 class="activities-title">What would you like to do on our date?</h2>
+            <p class="activities-subtitle">(Pick as many as you'd like)</p>
             
-            <div class="activities-grid">
-                <label class="activity-card">
+            <div class="activities-list">
+                <label class="activity-item">
                     <input type="checkbox" name="activity" value="dinner">
-                    <div class="card-content">
-                        <span class="activity-icon">🍽️</span>
-                        <span class="activity-name">Romantic Dinner</span>
-                    </div>
+                    <span class="checkmark"></span>
+                    <span class="activity-name">Romantic Dinner</span>
                 </label>
                 
-                <label class="activity-card">
+                <label class="activity-item">
                     <input type="checkbox" name="activity" value="movie">
-                    <div class="card-content">
-                        <span class="activity-icon">🎬</span>
-                        <span class="activity-name">Movie Night</span>
-                    </div>
+                    <span class="checkmark"></span>
+                    <span class="activity-name">Movie Night</span>
                 </label>
                 
-                <label class="activity-card">
+                <label class="activity-item">
                     <input type="checkbox" name="activity" value="walk">
-                    <div class="card-content">
-                        <span class="activity-icon">🌅</span>
-                        <span class="activity-name">Sunset Walk</span>
-                    </div>
+                    <span class="checkmark"></span>
+                    <span class="activity-name">Sunset Walk</span>
                 </label>
                 
-                <label class="activity-card">
+                <label class="activity-item">
                     <input type="checkbox" name="activity" value="picnic">
-                    <div class="card-content">
-                        <span class="activity-icon">🧺</span>
-                        <span class="activity-name">Picnic Date</span>
-                    </div>
+                    <span class="checkmark"></span>
+                    <span class="activity-name">Picnic Date</span>
                 </label>
                 
-                <label class="activity-card">
+                <label class="activity-item">
                     <input type="checkbox" name="activity" value="coffee">
-                    <div class="card-content">
-                        <span class="activity-icon">☕</span>
-                        <span class="activity-name">Coffee & Dessert</span>
-                    </div>
+                    <span class="checkmark"></span>
+                    <span class="activity-name">Coffee & Dessert</span>
                 </label>
                 
-                <label class="activity-card">
+                <label class="activity-item">
                     <input type="checkbox" name="activity" value="stargazing">
-                    <div class="card-content">
-                        <span class="activity-icon">🌟</span>
-                        <span class="activity-name">Stargazing</span>
-                    </div>
+                    <span class="checkmark"></span>
+                    <span class="activity-name">Stargazing</span>
                 </label>
                 
-                <label class="activity-card">
+                <label class="activity-item">
                     <input type="checkbox" name="activity" value="museum">
-                    <div class="card-content">
-                        <span class="activity-icon">🎨</span>
-                        <span class="activity-name">Museum Visit</span>
-                    </div>
+                    <span class="checkmark"></span>
+                    <span class="activity-name">Museum Visit</span>
                 </label>
                 
-                <label class="activity-card">
+                <label class="activity-item">
                     <input type="checkbox" name="activity" value="cooking">
-                    <div class="card-content">
-                        <span class="activity-icon">👩‍🍳</span>
-                        <span class="activity-name">Cook Together</span>
-                    </div>
+                    <span class="checkmark"></span>
+                    <span class="activity-name">Cook Together</span>
                 </label>
             </div>
             
-            <button class="submit-btn" id="submitBtn">Submit My Choices! 💕</button>
+            <button class="submit-btn" id="submitBtn">Submit My Choices</button>
             
             <div class="final-message" id="finalMessage">
-                <h2>Perfect! Can't wait! 😊</h2>
-                <p>This is going to be the best Valentine's Day ever! 💖</p>
+                <h2>Perfect! Can't wait!</h2>
+                <p>This is going to be the best Valentine's Day ever!</p>
             </div>
         </div>
     </div>

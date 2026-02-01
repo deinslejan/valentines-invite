@@ -19,12 +19,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Handle "Yes" checkbox clicks
-    function handleYesClick() {
-        // Check if either checkbox is checked
-        if (yes1Checkbox.checked || yes2Checkbox.checked) {
-            // Ensure both are checked (because there's no "No" option!)
-            yes1Checkbox.checked = true;
-            yes2Checkbox.checked = true;
+    function handleYesClick(clickedCheckbox, otherCheckbox) {
+        // If one is checked, uncheck the other
+        if (clickedCheckbox.checked) {
+            otherCheckbox.checked = false;
             
             // Smooth scroll to activities section
             setTimeout(() => {
@@ -43,8 +41,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    yes1Checkbox.addEventListener('change', handleYesClick);
-    yes2Checkbox.addEventListener('change', handleYesClick);
+    yes1Checkbox.addEventListener('change', () => handleYesClick(yes1Checkbox, yes2Checkbox));
+    yes2Checkbox.addEventListener('change', () => handleYesClick(yes2Checkbox, yes1Checkbox));
 
     // Handle submit button
     submitBtn.addEventListener('click', function() {
@@ -66,19 +64,9 @@ document.addEventListener('DOMContentLoaded', function() {
             const activities = Array.from(selectedActivities).map(cb => cb.value);
             console.log('Selected activities:', activities);
         } else {
-            alert('Please select at least one activity! 💕');
+            alert('Please select at least one activity!');
         }
     });
 
-    // Add interactive effect to activity cards
-    const activityCards = document.querySelectorAll('.activity-card');
-    activityCards.forEach(card => {
-        card.addEventListener('click', function() {
-            const checkbox = this.querySelector('input[type="checkbox"]');
-            checkbox.checked = !checkbox.checked;
-            
-            // Trigger change event for proper styling
-            checkbox.dispatchEvent(new Event('change'));
-        });
-    });
+    // Activity items use default checkbox behavior
 });

@@ -6,6 +6,7 @@
     <title>Valentine's Invitation</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Permanent+Marker&family=Architects+Daughter&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -110,15 +111,23 @@
                     <span class="checkmark"></span>
                     <span class="activity-name">Cook Together</span>
                 </label>
+                
+                <label class="activity-item" id="othersItem">
+                    <input type="checkbox" name="activity" value="others" id="othersCheckbox">
+                    <span class="checkmark"></span>
+                    <span class="activity-name">Others:</span>
+                </label>
+                
+                <input type="text" id="othersText" class="others-textbox" placeholder="Type your idea here..." disabled>
             </div>
             
             <button class="submit-btn" id="submitBtn">Submit My Choices</button>
             
             <div class="final-message" id="finalMessage">
-                <h2>Perfect! Can't wait!</h2>
-                <p>You selected:</p>
+                <h2 id="finalTitle">Perfect! Can't wait!</h2>
+                <p id="finalSubtext">You selected:</p>
                 <ul class="selected-list" id="selectedList"></ul>
-                <p class="closing-text">This is going to be the best Valentine's Day ever!</p>
+                <p class="closing-text" id="closingText">This is going to be the best Valentine's Day ever!</p>
             </div>
         </div>
     </div>

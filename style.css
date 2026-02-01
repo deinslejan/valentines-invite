@@ -36,16 +36,24 @@ body {
 }
 
 .envelope:hover {
-    transform: scale(1.02);
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
 }
 
 .envelope.opened {
-    animation: envelopeOpen 1s ease forwards;
+    animation: envelopeOpen 1.2s ease forwards;
 }
 
 @keyframes envelopeOpen {
-    to {
-        transform: translateY(-120px);
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05) translateY(-20px);
+    }
+    100% {
+        transform: scale(0.8) translateY(-200px);
         opacity: 0;
     }
 }
@@ -60,12 +68,13 @@ body {
     border-bottom: 2px solid #8b7355;
     clip-path: polygon(0 0, 50% 70%, 100% 0);
     transform-origin: top;
-    transition: transform 0.8s ease;
+    transition: transform 1s ease;
     z-index: 2;
 }
 
 .envelope.opened .envelope-top {
-    transform: rotateX(180deg);
+    transform: rotateX(-180deg);
+    opacity: 0.3;
 }
 
 .letter {
@@ -80,16 +89,35 @@ body {
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.8s ease;
+    transition: transform 1s ease, opacity 0.5s ease;
     z-index: 1;
     font-family: 'Caveat', cursive;
     font-size: 20px;
     color: #5a4a3a;
 }
 
-.envelope.opened .letter {
-    transform: translateY(-160px);
+.letter:hover {
+    background: #fffef8;
 }
+
+.envelope.opened .letter {
+    transform: translateY(-250px) scale(1.2);
+    animation: letterFloat 1s ease forwards;
+}
+
+@keyframes letterFloat {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-280px) scale(1.3) rotate(5deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-300px) scale(0.5);
+        opacity: 0;
+    }
 
 /* Message Section */
 .message-section {
@@ -348,6 +376,38 @@ body {
     font-size: 22px;
 }
 
+.others-textbox {
+    width: calc(100% - 40px);
+    max-width: 500px;
+    margin: 0 auto;
+    display: block;
+    padding: 12px 20px;
+    font-family: 'Caveat', cursive;
+    font-size: 20px;
+    color: #3a3a3a;
+    background: white;
+    border: 3px solid #c9b896;
+    border-left: 3px solid #c9b896;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.others-textbox:focus:not(:disabled) {
+    border-left-color: #c9432d;
+    background: #fffef8;
+}
+
+.others-textbox:disabled {
+    background: #f5f0e8;
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.others-textbox::placeholder {
+    color: #a99a8a;
+    font-style: italic;
+}
+
 .submit-btn {
     display: block;
     margin: 0 auto;
@@ -464,6 +524,15 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .envelope {
+        width: 280px;
+        height: 190px;
+    }
+    
     .main-title {
         font-size: 32px;
     }
@@ -482,6 +551,48 @@ body {
     }
     
     .checkbox-text {
+        font-size: 22px;
+    }
+    
+    .message-box,
+    .question-box,
+    .activities-section {
+        padding: 20px 15px;
+    }
+}
+
+/* iPad specific optimizations */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .container {
+        max-width: 650px;
+    }
+    
+    .envelope {
+        width: 350px;
+        height: 240px;
+    }
+    
+    .letter {
+        font-size: 22px;
+    }
+    
+    .activity-item {
+        font-size: 24px;
+    }
+    
+    .activity-item .checkmark {
+        width: 26px;
+        height: 26px;
+    }
+    
+    /* Improve touch targets for iPad */
+    .checkbox-label,
+    .activity-item {
+        min-height: 48px;
+    }
+    
+    .submit-btn {
+        padding: 18px 50px;
         font-size: 22px;
     }
 }

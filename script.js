@@ -13,10 +13,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Button click animation
     openButton.addEventListener('click', function() {
+        console.log('Button clicked!');
         openButton.classList.add('clicked');
         
         // Show message section after button animation
         setTimeout(() => {
+            console.log('Showing message section');
             messageSection.classList.add('visible');
         }, 800);
     });
